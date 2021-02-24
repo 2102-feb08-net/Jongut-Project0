@@ -1,76 +1,49 @@
-﻿using Project_Library;
-using Project_Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-
-namespace Jonathan_Project
+﻿using System;
+using Project.SQL;
+namespace Project.ConsoleUI
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            Customer c = new Customer();
-            Store s = new Store();
-            Order o = new Order();
-            Console.Clear();
-            Console.WriteLine("Welcome! What would you like?");
-            MainMenu(c, s, o);
+            using var dependencies = new Project.Library.Dependencies();
+
+            var context = dependencies.CreateDbContext();
+
+            Repository repository = new Repository(context);
+
+            MainMenu(repository);
         }
 
-        static public void MainMenu(Customer c, Store s, Order o)
+        public static void MainMenu(Repository repository)
         {
-            while (true) 
-            { 
-            Console.WriteLine("1. Add a Customer: ");
-            Console.WriteLine("2. Search Customer by ID: ");
-            Console.WriteLine("3. Add an Item to the inventory: ");
-            Console.WriteLine("4. Print the Inventory: ");
-            Console.WriteLine("5. Add a store: ");
-            Console.WriteLine("6. Display all stores: ");
-            Console.WriteLine("7. Find store by ID: ");
-            Console.WriteLine("9. Add an Order: ");
-            int choice = int.Parse(Console.ReadLine());
-                while (choice != 0)
+            
+            while (true)
+            {
+                Console.WriteLine("c:  Customer Menu.");
+                Console.WriteLine("o:  Order Menu.");
+                Console.WriteLine("p:  Product Menu.");
+                Console.WriteLine("q: Quit Program");
+                Console.WriteLine();
+                string userinput = Console.ReadLine();
+
+                Console.WriteLine();
+
+                if (userinput == "c")
                 {
-                    switch (choice)
-                    {
-                        case 1:
-                            c.AddCustomer();
-                            break;
-                        case 2:
-                            c.SearchCustomer();
-                            break;
-                        case 3:
-                            s.AddItemToInventory();
-                            break;
-                        case 4:
-                            s.printInventory();
-                            break;
-                        case 5:
-                            s.AddStores();
-                            break;
-                        case 6:
-                            s.displayStores();
-                            break;
-                        case 7:
-                            s.findStore();
-                            break;
-                        case 8:
-                            o.AddOrder();
-                            break;
-                        case 9:
-                            o.RemoveOrder();
-                            break;
-                        default:
-                            Console.WriteLine("Wrong Input");
-                            break;
-                    }
+                    CustomerUI.DisplayOptions(repository);
+                }
+                else if (userinput == "p")
+                {
+                    ProductUI.DisplayOptions(repository);
+                }
+                else if (userinput == "o")
+                {
+                    OrderUI.DisplayOptions(repository);
+                }
+                else if (userinput == "q")
+                {
+                    break;
                 }
             }
         }

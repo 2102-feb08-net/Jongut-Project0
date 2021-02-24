@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Project_Library
 {
-    public class Store : Order
+    public class Store
 
     {
         Dictionary<int, string> InventoryList = new Dictionary<int, string>();
@@ -76,11 +76,6 @@ namespace Project_Library
             int enterId = int.Parse(Console.ReadLine());
             if (StoreList.ContainsKey(enterId))
                 Console.WriteLine(StoreList[enterId]);
-        }
-
-        public void AddOrderCustomer()
-        {
-            AddOrder();
         }
     }
 }

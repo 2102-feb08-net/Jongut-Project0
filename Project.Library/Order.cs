@@ -3,88 +3,42 @@ using System.Collections.Generic;
 
 namespace Project.Library
 {
-    public class Order : Customer
+    public class Order
     {
-       
-        private decimal Price;
-        private int OrderID = 0;
-        private decimal OrderTotal;
-        private 786;sds;sdasd;
-        Dictionary<int, int> ShoppingList = new Dictionary<int, int>();
+       public int OrderID { get; private set; }
+        public int StoreID { get; private set; }
+        public int CustomerID { get; private set; }
+        public DateTime OrderTime { get; private set; }
+        public Customer Customer { get; private set; }
+        public Inventory Inventory { get; private set; }
 
-
-        /// <summary>
-        /// it will display all the attributes and time the order was set
-        /// </summary>
-        public decimal Checkout(decimal totalCost)
+        public Order(int customerid, int StoreId, DateTime Ordertime, int id = 0)
         {
-            foreach (var c in ShoppingList)
-            {
-                totalCost += OrderTotal;
-            }
 
-            ShoppingList.Clear();
-            return totalCost;
+            OrderID = id;
+
+            CustomerID = customerid;
+
+            StoreID = StoreId;
+
+            OrderTime = Ordertime;
+
+            
         }
 
-        public void printShoppingCart()
+        private int ValidQuantity(int quantity)
         {
-            try
+            if(quantity <= 0)
             {
-                Console.WriteLine("Items you have chosen: ");
-                for (int i = 0; i < ShoppingList.Count; i++)
-                {
-                    Console.WriteLine("Print Inventory: " + ShoppingList[i]);
-                }
-                Console.WriteLine("The total cost of your items is:" + Checkout(OrderTotal));
+                throw new ArgumentException("Quantity must be greater than zero.");
             }
-            catch (InvalidOperationException e)
-            {
-                throw new InvalidOperationException("Sequence contains no elements", e);
-            }
-        }
 
-        public void AddOrder()
-        {
-            Console.WriteLine("Which item would you like to buy?");
-            int item = int.Parse(Console.ReadLine());
-            Console.WriteLine("How many of these items?");
-            int Quantity = int.Parse(Console.ReadLine());
-            OrderTotal = CalculatePrice(item, Quantity);
-            Console.WriteLine(OrderTotal);
-            ShoppingList.Add(OrderID, CustomerID);
-            for (int i = 0; i < ShoppingList.Count; i++)
-            {
-                Console.WriteLine("Order ID: " + OrderID + "and item:" + item + ShoppingList[i]);
+            if (quantity > 999)
+            { 
+                throw new ArgumentException("Quantity is unreasonably high.");
             }
-            OrderID++;
-            Console.ReadLine();
-        }
 
-        public void RemoveOrder()
-        {
-            Console.WriteLine("Enter Order ID: ");
-            int removeItem = int.Parse(Console.ReadLine());
-            if (removeItem == OrderID)
-                ShoppingList.Remove(OrderID);
-        }
-
-        public decimal CalculatePrice(int item, int quant)
-        {
-            switch (item)
-            {
-                case 1:
-                    Price = 1M;
-                    break;
-                case 2:
-                    Price = 1M;
-                    break;
-                case 3:
-                    Price = 0.5M;
-                    break;
-            }
-            Price = Price * quant;
-            return Price;
+            return quantity;
         }
     }
 }

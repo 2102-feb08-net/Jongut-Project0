@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Jonathan_Project</RootNamespace>
+    <RootNamespace>Jongut-Project0</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Project-Interfaces\Project-Interfaces.csproj" />
-    <ProjectReference Include="..\Project-Library\Project-Library.csproj" />
+    <ProjectReference Include="..\Project.Library\Project.Library.csproj" />
+     <ProjectReference Include="..\Project.SQL\Project.SQL.csproj" />
   </ItemGroup>
 
 </Project>

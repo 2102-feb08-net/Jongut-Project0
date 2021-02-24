@@ -1,0 +1,15 @@
+C:\revature\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.deps.json
+C:\revature\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.runtimeconfig.json
+C:\revature\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.runtimeconfig.dev.json
+C:\revature\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.dll
+C:\revature\Jongut-Project0\Project.Library\bin\Debug\net5.0\ref\Project.Library.dll
+C:\revature\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.pdb
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.csprojAssemblyReference.cache
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.AssemblyInfoInputs.cache
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.AssemblyInfo.cs
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.csproj.CoreCompileInputs.cache
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.dll
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\ref\Project.Library.dll
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.pdb
+C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.genruntimeconfig.cache
