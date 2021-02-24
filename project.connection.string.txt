@@ -1,0 +1,1 @@
+Server=tcp:2102-gutierrez-sql.database.windows.net,1433;Initial Catalog=Project0-SQL;Persist Security Info=False;User ID=JonathanAdmin;Password=Mifamilia1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
