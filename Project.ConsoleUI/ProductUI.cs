@@ -10,7 +10,7 @@ namespace Project.ConsoleUI
 {
     public static class ProductUI
     {
-        public static void DisplayOptions(Repository repository)
+        public static void DisplayOptions(IProject0Repository repository)
         {
 
             while (true)

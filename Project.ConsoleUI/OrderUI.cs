@@ -1,9 +1,10 @@
 ﻿using System;
+using Project.SQL;
 namespace Project.ConsoleUI
 {
     public static class OrderUI
     {
-        public static void DisplayOptions(Repository repository)
+        public static void DisplayOptions(IProject0Repository repository)
         {
 
             while (true)
@@ -53,10 +54,10 @@ namespace Project.ConsoleUI
                             break;
                         }
                     }
-                    DateTime timecreated = DateTime.Now;
+                    DateTime OrderTime = DateTime.Now;
                     try
                     {                        
-                        Project.Library.Order order = new Project.Library.Order(customerid, storeid, timecreated);
+                        Project.Library.Order order = new Project.Library.Order(customerid, storeid, OrderTime);
                         repository.AddOrder(order);
                     }
                     catch (ArgumentException exception)

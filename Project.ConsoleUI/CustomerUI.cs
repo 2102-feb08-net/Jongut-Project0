@@ -1,16 +1,11 @@
-﻿using Project.SQL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
+using Project.SQL;
 
 namespace Project.ConsoleUI
 {
     public static class CustomerUI
     {
-        public static void DisplayOptions(Repository repository)
+        public static void DisplayOptions(IProject0Repository repository)
         {
 
             while (true)
@@ -24,18 +19,21 @@ namespace Project.ConsoleUI
                 string userinput = Console.ReadLine().ToLower();
 
                 if (userinput == "c")
-                {
-                    Console.WriteLine("Please Enter The Customers First Name\n");
+                { 
+                    Console.WriteLine("Please Enter The Customer First Name\n");
                     string firstname = Console.ReadLine();
-                    Console.WriteLine("Please Enter The Customers Last Name\n");
-                    string lastname = Console.ReadLine();
+                    Console.WriteLine("Please Enter The Customer Last Name\n");
+                    string lastname = Console.ReadLine();                     
                     try
-                    {
-                        Project.Library.Customer customer = new Project.Library.Customer(firstname, lastname, 1);
+                    {              
+                        Project.Library.Customer customer = new Project.Library.Customer(firstname, lastname);
                         repository.AddCustomer(customer);
+
+                        if (repository.AddCustomer(customer))
+                        {
                             Console.WriteLine("Successfully added Customer");
                             Console.WriteLine("Remember to save to lock in changes.");
-
+                        }
                     }
                     catch (ArgumentException exception)
                     {
@@ -51,11 +49,7 @@ namespace Project.ConsoleUI
 
                     Console.WriteLine("First Name:");
                     string searchfirstname = Console.ReadLine();
-
-                    Console.WriteLine("Last Name:");
-                    string searchlastname = Console.ReadLine();
-
-                    var customers = repository.SearchCustomer(searchfirstname, searchlastname);                   
+                    var customers = repository.SearchCustomer(searchfirstname);                   
                     Console.WriteLine($"ID:{customers.CustomerID} {customers.FirstName},{customers.LastName}");
                     
                 }
@@ -102,13 +96,7 @@ namespace Project.ConsoleUI
                     Console.WriteLine("Returning to Main Menu\n");
                     break;
                 }
-
-
-
-
             }
         }
-
-
     }
 }
