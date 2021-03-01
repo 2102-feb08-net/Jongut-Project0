@@ -5765,11 +5765,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\revature\\Jongut-Project0\\Project.Library\\Project.Library.csproj",
+      "projectUniqueName": "c:\\revature\\Jongut-Project0\\Project.Library\\Project.Library.csproj",
       "projectName": "Project.Library",
-      "projectPath": "C:\\revature\\Jongut-Project0\\Project.Library\\Project.Library.csproj",
+      "projectPath": "c:\\revature\\Jongut-Project0\\Project.Library\\Project.Library.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\revature\\Jongut-Project0\\Project.Library\\obj\\",
+      "outputPath": "c:\\revature\\Jongut-Project0\\Project.Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",

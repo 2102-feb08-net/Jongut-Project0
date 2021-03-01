@@ -13,3 +13,18 @@ C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.dll
 C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\ref\Project.Library.dll
 C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.pdb
 C:\revature\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.genruntimeconfig.cache
+D:\Kuro stuff\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.deps.json
+D:\Kuro stuff\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.runtimeconfig.json
+D:\Kuro stuff\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.runtimeconfig.dev.json
+D:\Kuro stuff\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.dll
+D:\Kuro stuff\Jongut-Project0\Project.Library\bin\Debug\net5.0\ref\Project.Library.dll
+D:\Kuro stuff\Jongut-Project0\Project.Library\bin\Debug\net5.0\Project.Library.pdb
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.csprojAssemblyReference.cache
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.AssemblyInfoInputs.cache
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.AssemblyInfo.cs
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.csproj.CoreCompileInputs.cache
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.dll
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\ref\Project.Library.dll
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.pdb
+D:\Kuro stuff\Jongut-Project0\Project.Library\obj\Debug\net5.0\Project.Library.genruntimeconfig.cache

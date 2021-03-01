@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Xml.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Project.SQL;
 
-namespace Project.Library
+namespace Project.SQL
 {
     public class Dependencies : IDisposable
     {
@@ -14,14 +12,21 @@ namespace Project.Library
 
         private readonly List<IDisposable> _disposables = new List<IDisposable>();
 
-        public ProjectSQLContext CreateDbContext()
+        public Project0SQLContext CreateDbContext()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProjectSQLContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<Project0SQLContext>();
             var connectionString = File.ReadAllText("C:/revature/Jongut-Project0/project-connection-string.txt");
             optionsBuilder.UseSqlServer(connectionString);
 
-            return new ProjectSQLContext(optionsBuilder.Options);
+            return new Project0SQLContext(optionsBuilder.Options);
         }
+
+        public IProject0Repository CreateRepository(){
+            var dbContext = CreateDbContext();
+            _disposables.Add(dbContext);
+            return new Repository(dbContext);
+        }
+
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposedValue)

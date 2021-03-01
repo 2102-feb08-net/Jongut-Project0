@@ -9,8 +9,6 @@ namespace Project.Library
         public int StoreID { get; private set; }
         public int CustomerID { get; private set; }
         public DateTime OrderTime { get; private set; }
-        public Customer Customer { get; private set; }
-        public Inventory Inventory { get; private set; }
 
         public Order(int customerid, int StoreId, DateTime Ordertime, int id = 0)
         {

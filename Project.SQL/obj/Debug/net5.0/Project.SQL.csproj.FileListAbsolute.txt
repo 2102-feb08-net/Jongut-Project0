@@ -16,3 +16,21 @@ C:\revature\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.dll
 C:\revature\Jongut-Project0\Project.SQL\obj\Debug\net5.0\ref\Project.SQL.dll
 C:\revature\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.pdb
 C:\revature\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.genruntimeconfig.cache
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.SQL.deps.json
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.SQL.runtimeconfig.json
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.SQL.runtimeconfig.dev.json
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.SQL.dll
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\ref\Project.SQL.dll
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.SQL.pdb
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.Library.dll
+D:\Kuro stuff\Jongut-Project0\Project.SQL\bin\Debug\net5.0\Project.Library.pdb
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.csprojAssemblyReference.cache
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.AssemblyInfoInputs.cache
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.AssemblyInfo.cs
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.csproj.CoreCompileInputs.cache
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.csproj.CopyComplete
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.dll
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\ref\Project.SQL.dll
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.pdb
+D:\Kuro stuff\Jongut-Project0\Project.SQL\obj\Debug\net5.0\Project.SQL.genruntimeconfig.cache

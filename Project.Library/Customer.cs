@@ -8,51 +8,68 @@ namespace Project.Library
     {
         public String FirstName {get; private set;}
         public String LastName {get; private set;}
-        public int CustomerID = 0;
+        public int CustomerID { get; private set; }
         
-        public Customer(string firstName, string lastName, int id)
+        public Customer(string firstName, string lastName, int id = 0)
         {
-            string FirstNameValid = firstName;
-
-            string LastNameValid =lastName;
-
+            string FirstNameValid = ValidCustomer(firstName);
+            string LastNameValid =ValidCustomer(lastName);
             FirstName = FirstNameValid;
-
             LastName = FirstNameValid;
-
-            CustomerID = id;
+            this.CustomerID = id;
         }
         public string ValidCustomer(string name)
         {
-            Console.WriteLine("Enter the name of the customer: ");
-            name = Console.ReadLine();
-            if (!Regex.IsMatch(FirstName, @"^[\p{L} \.\-]+$"))
-            {
-                throw new ArgumentException("Name can't be empty! Input your first name again: ");
-            }
-            else if (String.IsNullOrEmpty(name))
+           
+           
+            if (String.IsNullOrEmpty(name))
             {
                 throw new ArgumentException("There are no letters");
             }
-            char[] letters = name.ToCharArray();
 
-            for (int i = 0; i < letters.Length; i++)
+            // Seperates string into a character array to check and make sure all characters are letters,
+            // Throws an ArgumentException error if it finds a non letter
+
+            char[] nameletters = name.ToCharArray();
+
+         
+            for (int i = 0; i < nameletters.Length; i++)
             {
-                if (!char.IsLetter(letters[i]))
+                if (!char.IsLetter(nameletters[i]))
                 {
                     throw new ArgumentException("All characters must be a letter");
                 }
+
+            }
+
+            // Returns a formatted Name
+
+            string FinalName = FormatName(name);
+
+            return FinalName;
+        }
+        public static string FormatName(string Name)
+        {
+          
+            char[] nameletters = Name.ToCharArray();
+
+            //Capitalizes the first letter of the word, while lowercasing the rest.
+            // !!Important!! Throws ArguementException Error if character is not a letter.
+
+            for (int i = 0; i < nameletters.Length; i++)
+            {
+
                 if (i == 0)
                 {
-                    letters[0] = char.ToUpper(letters[0]);
+                    nameletters[0] = char.ToUpper(nameletters[0]);
                 }
                 else
                 {
-                    letters[i] = char.ToLower(letters[i]);
+                    nameletters[i] = char.ToLower(nameletters[i]);
                 }
+            }
 
-            }           
-            return name;
+            return new string(nameletters);
         }
     }
 }

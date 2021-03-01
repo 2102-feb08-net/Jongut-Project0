@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Library
+namespace Project.Library
 {
     public class Product
     {
@@ -22,7 +22,7 @@ namespace Library
             Price = price;
 
             ProductName = productName;
-
+            
             Id = id;
         }
 

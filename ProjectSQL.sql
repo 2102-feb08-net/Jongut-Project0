@@ -1,97 +1,98 @@
 /********************************************************************************
-   Script: ProjectSQL.sql
-   Description: Creates and populates the Project 0 database.
-   DB Server: Project0-SQL
-   Author: Jonathan Gutierrez
+   SCRIPT: PROJECTSQL.SQL
+   DESCRIPTION: CREATES AND POPULATES THE PROJECT 0 DATABASE.
+   DB SERVER: PROJECT0-SQL
+   AUTHOR: JONATHAN GUTIERREZ
 ********************************************************************************/
 
 /*******************************************************************************
-   Create Tables
+   CREATE TABLES
 ********************************************************************************/
-CREATE TABLE [Customer]
+CREATE TABLE [CUSTOMER]
 (
-    [CustomerID] INT NOT NULL IDENTITY UNIQUE,
-    [FirstName] NVARCHAR(160) NOT NULL,
-    [LastName] INT NOT NULL,
-    CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED ([CustomerID])
-);
-GO
-
-CREATE TABLE [Order]
-(
-	[CustomerID] INT NOT NULL IDENTITY UNIQUE,
-    [OrderID] INT NOT NULL IDENTITY UNIQUE,
-    [Total] Decimal NOT NULL,
-    [ProductID] INT NOT NULL,
-    CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED ([OrderID])
+    [CUSTOMERID] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    [FIRSTNAME] NVARCHAR(160) NOT NULL,
+    [LASTNAME] NVARCHAR(160) NOT NULL,
 );
 
-GO
-CREATE TABLE [Store]
+CREATE TABLE [ORDER]
 (
-	[CustomerID] INT NOT NULL IDENTITY UNIQUE,
-	[OrderID] INT NOT NULL IDENTITY UNIQUE,
-    [StoreID] INT NOT NULL IDENTITY UNIQUE,
-    [StoreName] NVARCHAR(160) NOT NULL,
-    CONSTRAINT [PK_Store] PRIMARY KEY CLUSTERED ([StoreID])
+	[CUSTOMERID] INT NOT NULL,
+    [ORDERID] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    STORELOCATIONID INT NOT NULL,
+	 [DATETIME] DATETIME,
 );
-GO
 
-CREATE TABLE [Product]
-(
-	[ProductID] NVARCHAR(160) NOT NULL,
-    [ProductName] NVARCHAR(160) NOT NULL,
-    [Price] Decimal NOT NULL,
-    CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED ([ProductID])
+CREATE TABLE [ORDERLINE](
+
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ORDERID INT NOT NULL,
+	PRODUCTID INT NOT NULL,
+	QUANTITY INT NOT NULL
 );
-GO
+
+CREATE TABLE [STORE]
+(
+	
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ADDRESS NVARCHAR(100) NOT NULL,
+	CITY NVARCHAR(100) NOT NULL,
+	STATE NVARCHAR(20) NOT NULL,
+	PHONENUMBER NVARCHAR(20) NOT NULL,
+);
+
+CREATE TABLE [PRODUCT]
+(
+	[PRODUCTID] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    [PRODUCTNAME] NVARCHAR(160) NOT NULL,
+    [PRICE] MONEY NOT NULL,
+);
+
+CREATE TABLE [INVENTORY]
+(
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	STOREID INT NOT NULL,
+	PRODUCTID INT NOT NULL,
+	QUANTITY INT NOT NULL,
+
+);
+CREATE TABLE [STORELOCATION] (
+
+	ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ADDRESS NVARCHAR(100) NOT NULL,
+	CITY NVARCHAR(100) NOT NULL,
+	STATE NVARCHAR(20) NOT NULL,
+	PHONENUMBER NVARCHAR(20) NOT NULL,
+)
 
 /*******************************************************************************
-   Create Foreign Keys
+   CREATE FOREIGN KEYS
 ********************************************************************************/
 
-ALTER TABLE [Customer] ADD CONSTRAINT [FK_CustomerOrderID]
-    FOREIGN KEY ([CustomerID]) REFERENCES [Order] (CustomerID) ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
+--Commands to link Inventory to Product and Store Location.
 
-CREATE INDEX [FK_CustomerOrderID] ON [Customer] ([CustomerID]);
-GO
+ALTER TABLE [INVENTORY]
+ADD FOREIGN KEY ([PRODUCTID]) REFERENCES [PRODUCT]([PRODUCTID])
 
-ALTER TABLE [Order] ADD CONSTRAINT [FK_StoreOrderID]
-    FOREIGN KEY ([OrderID]) REFERENCES [Store] (OrderID) ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
+ALTER TABLE [INVENTORY]
+ADD FOREIGN KEY (STOREID) REFERENCES [STORELOCATION](ID)
 
-CREATE INDEX [FK_StoreOrderID] ON [Order] ([OrderID]);
-GO
 
-ALTER TABLE [Store] ADD CONSTRAINT [FK_StoreCustomerID]
-    FOREIGN KEY ([CustomerID]) REFERENCES [Customer] (CustomerID) ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
+--Commands to Link an Orderline with its Order and Product
 
-CREATE INDEX [FK_StoreCustomerID] ON [Store] ([StoreID]);
-GO
 
-/*******************************************************************************
-   Populate Tables
-********************************************************************************/
-INSERT INTO [Customer] ([CustomerID], [FirstName], [LastName]) VALUES (1, N'Jonathan',N'Gutierrez');
-INSERT INTO [Customer] ([CustomerID], [FirstName], [LastName]) VALUES (2, N'Alan',N'Walker');
-INSERT INTO [Customer] ([CustomerID], [FirstName], [LastName]) VALUES (3, N'Chris',N'Allen');
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (1, 1,10.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (1, 2,5.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (1, 3,20.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (2, 1,10.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (2, 2,5.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (2, 3,20.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (3, 1,10.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (3, 2,5.00);
-INSERT INTO [Order] ([CustomerID], [OrderID], [Price]) VALUES (3, 3,20.00);
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (1, 1, 1, N'Amazon');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID], [StoreName]) VALUES (2, 1, 1, N'Amazon');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID], [StoreName]) VALUES (3, 2, 1, N'Ebay');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (1, 1, 2, N'Amazon');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (2, 2, 2, N'Ebay');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (3, 3, 2, N'Walgreens');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (1, 1, 3, N'Amazon');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (2, 3, 3, N'Amazon');
-INSERT INTO [Store] ([OrderID], [StoreID], [CustomerID],[StoreName]) VALUES (3, 4, 3, N'GoodWe');
+ALTER TABLE [ORDERLINE]
+ADD FOREIGN KEY (ORDERID) REFERENCES [ORDER](ORDERID)
+
+
+ALTER TABLE [ORDERLINE]
+ADD FOREIGN KEY (PRODUCTID) REFERENCES [PRODUCT]([PRODUCTID])
+
+
+--Commands to link Orders with the Customers that placed them, as
+
+ALTER TABLE [ORDER]
+ADD FOREIGN KEY ([CUSTOMERID]) REFERENCES [CUSTOMER]([CUSTOMERID])
+
+ALTER TABLE [ORDER]
+ADD FOREIGN KEY (STORELOCATIONID) REFERENCES [STORELOCATION](ID)

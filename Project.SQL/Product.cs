@@ -7,17 +7,17 @@ namespace Project.SQL
 {
     public partial class Product
     {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal Price { get; set; } 
         public Product()
         {
             Inventories = new HashSet<Inventory>();
-            OrderProducts = new HashSet<OrderProduct>();
+            OrderLines = new HashSet<OrderProduct>();
         }
 
-        public int Id { get; set; }
-        public string ProductName { get; set; }
-        public decimal? Price { get; set; }
 
         public virtual ICollection<Inventory> Inventories { get; set; }
-        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual ICollection<OrderProduct> OrderLines { get; set; }
     }
 }
